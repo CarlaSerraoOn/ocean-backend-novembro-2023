@@ -20,7 +20,7 @@ const lista = ["Harry Potter", "Hermione Granger", "Ronny Wesley"]
 
 // Read All - [GET] /item
 app.get("/item", function (req,res){
-    res.send(lista)
+    res.send(lista.filter(Boolean))
 })
 
 // Read by id - [GET] /item/:id
@@ -59,6 +59,19 @@ app.put("/item/:id", function (req,res){
     lista[id] = novoItem
 
     res.send("Item atualizado com sucesso!")
+})
+
+// Delete - [DELETE] /item/:id
+app.delete("/item/:id", function (req,res) {
+
+//obtemos o Id do parametro
+    const id = req.params.id -1
+
+// Removemos o item da lista
+    delete lista[id]
+
+// Exibimos uma mensagem de sucesso
+    res.send("Item removido com sucesso!")
 })
 
 
