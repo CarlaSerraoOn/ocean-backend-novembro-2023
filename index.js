@@ -9,6 +9,12 @@ app.get("/oi", function (req, res) {
   res.send("Olá, mundo!")
 })
 
+const lista = ["Harry Potter", "Hermione Granger", "Ronny Wesley"]
+
+app.get("/item", function (req,res){
+    res.send(lista)
+})
+
 app.listen(3000 ,() =>
     console.log("Servidor rodando em http://localhost:3000")
 );
